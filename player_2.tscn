@@ -162,7 +162,7 @@ animations = [{
 "duration": 2.0,
 "texture": ExtResource("23_km62s")
 }, {
-"duration": 10.0,
+"duration": 15.0,
 "texture": ExtResource("22_mj12t")
 }],
 "loop": true,
@@ -218,7 +218,7 @@ metadata/_edit_group_ = true
 
 [node name="Player1Sprite" type="AnimatedSprite2D" parent="." unique_id=1099349113]
 sprite_frames = SubResource("SpriteFrames_buxg0")
-animation = &"grabSuccess"
+animation = &"medium"
 
 [node name="Player1Box" type="CollisionShape2D" parent="." unique_id=1416732209]
 shape = SubResource("RectangleShape2D_6736r")

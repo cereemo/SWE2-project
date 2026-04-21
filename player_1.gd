@@ -68,6 +68,7 @@ func _process(delta: float) -> void:
 		isGrabbing = boxArgs[9]
 		
 	else: hitbox.set_disabled(true)
+	$Player1Box.scale = currentState.expandBox()
 	
 func disable() -> void:
 	currentState = disabled.new()
@@ -87,6 +88,8 @@ class State:
 		return false
 	func justHitGrab() -> bool:
 		return false
+	func expandBox() -> Vector2:
+		return Vector2(1, 1)
 
 class disabled extends State:
 	var animation = "idle"
@@ -251,19 +254,18 @@ class standingLight extends State:
 		if count > startUp && count < startUp + active + 1:
 			return [true, hitboxXSize, hitboxYSize, hitboxXoffset, hitboxYoffset, hitStun, blockStun, pushback, damage, false]
 		else: return [false, 0, 0, 0, 0]
-		
 
 class standingMedium extends State: 
 	var animation = "medium"
 	var startUp = 7
 	var active = 3
-	var recovery = 10
+	var recovery = 15
 	var hitboxXSize = 150
 	var hitboxYSize = 60 
 	var hitboxXoffset = 0
 	var hitboxYoffset = -22
-	var hitStun = 15
-	var blockStun = 10
+	var hitStun = 20
+	var blockStun = 15
 	var pushback = 2
 	var damage = 20
 	var length = startUp + active + recovery
@@ -291,6 +293,11 @@ class standingMedium extends State:
 		if count > startUp && count < startUp + active + 1:
 			return [true, hitboxXSize, hitboxYSize, hitboxXoffset, hitboxYoffset, hitStun, blockStun, pushback, damage, false]
 		else: return [false, 0, 0, 0, 0]
+	func expandBox() -> Vector2:
+		if count > startUp + active:
+			return Vector2(3, 1)
+		else: return Vector2(1, 1)
+		
 
 class standingHeavy extends State: 
 	var animation = "heavy"
