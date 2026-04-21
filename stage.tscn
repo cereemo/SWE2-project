@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cgw8hjrmrwihq"]
+
+[ext_resource type="Script" uid="uid://8scjep8by7e2" path="res://stage.gd" id="1_aees8"]
+[ext_resource type="PackedScene" uid="uid://kkskkcsvs7k4" path="res://player_1.tscn" id="2_rnkuw"]
+[ext_resource type="PackedScene" uid="uid://5qvf86nf4tcy" path="res://player_2.tscn" id="3_rnkuw"]
+[ext_resource type="Texture2D" uid="uid://dq1138bplpd0o" path="res://background.png" id="4_gx6sy"]
+
+[node name="stage" type="Node2D" unique_id=743872435]
+script = ExtResource("1_aees8")
+playerScene = ExtResource("2_rnkuw")
+secondPlayerScene = ExtResource("3_rnkuw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=545618779]
+
+[node name="p1background" type="ColorRect" parent="CanvasLayer" unique_id=1717629920]
+offset_right = 400.0
+offset_bottom = 30.0
+color = Color(0.7850614, 0, 0.106100745, 1)
+
+[node name="p2background" type="ColorRect" parent="CanvasLayer" unique_id=658889801]
+offset_left = 680.0
+offset_right = 1080.0
+offset_bottom = 30.0
+color = Color(0.78431374, 0, 0.105882354, 1)
+
+[node name="p1foreground" type="ColorRect" parent="CanvasLayer" unique_id=860348347]
+offset_right = 400.0
+offset_bottom = 30.0
+
+[node name="p2foreground" type="ColorRect" parent="CanvasLayer" unique_id=1381386521]
+offset_left = 680.0
+offset_right = 1080.0
+offset_bottom = 30.0
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=680549920]
+offset_left = 440.0
+offset_top = 51.0
+offset_right = 640.0
+offset_bottom = 177.0
+theme_override_font_sizes/font_size = 92
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1285172222]
+position = Vector2(540, 360)
+texture = ExtResource("4_gx6sy")
